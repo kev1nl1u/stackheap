@@ -1,0 +1,11 @@
+/* dark theme */
+:root{
+	--bg: #121212;
+	--bg-rgb: 18,18,18;
+	--text: #fff;
+	--inverted-text: #000;
+	--hover-btn: #38444d;
+	--code-container-bg: #1e1e1e;
+	--code-bg: #07090f;
+	--selection: #004D40;
+}

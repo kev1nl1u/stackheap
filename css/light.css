@@ -1,0 +1,11 @@
+/* light theme */
+:root{
+	--bg: #fff;
+	--bg-rgb: 255,255,255;
+	--text: #000;
+	--inverted-text: #fff;
+	--hover-btn: #ccc;
+	--code-container-bg: #e2e2e2;
+	--code-bg: #fff;
+	--selection: #B2DFDB;
+}

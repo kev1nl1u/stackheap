@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../img/favicon.png" type="image/png">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+	<link rel="stylesheet" href="../css/dark.css" type="text/css" id="theme-css">
+
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/95ae55bd9a.js" crossorigin="anonymous"></script>
+
+	<!-- Material Icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!---- JS ----->
+	<!---- theme ----->
+	<script src="../js/theme.js"></script>
+	<!---- if not loaded on server - root is different ----->
+	<script>
+		if (localStorage.getItem('theme') == 'light') {
+			$('#theme-css').attr('href', '../css/light.css');
+			$('#theme-btn').html('light_mode');
+		}
+
+		function changeTheme(){
+			if ($('#theme-css').attr('href') == '../css/dark.css') {
+				$('#theme-css').attr('href', '../css/light.css');
+				if(localStorage.getItem("acceptUse") == "true") localStorage.setItem('theme', 'light');
+				$('#theme-btn').html('light_mode');
+			} else {
+				$('#theme-css').attr('href', '../css/dark.css');
+				if(localStorage.getItem("acceptUse") == "true") localStorage.setItem('theme', 'dark');
+				$('#theme-btn').html('dark_mode');
+			}
+		}
+	</script>
+
+	<title>Informativa privacy</title>
+</head>
+<body>
+
+	<div class="out">
+
+		<div class="nav">
+			<div class="nav-btn">
+				<div onclick="show(this)" for="home"><i class="fa-solid fa-house"></i></div>
+				<div onclick="show(this)" for="stack">STACK</div>
+				<div onclick="show(this)" for="heap">HEAP</div>
+			</div>
+			<div class="nav-footer-container">
+				<div class="nav-footer">
+					<i class="fas fa-cog nav-footer-settings-icon"></i>
+					<div class="nav-footer-links">
+						<div class="change-theme" onclick="changeTheme()">
+							<span class="material-symbols-outlined" id="theme-btn">dark_mode</span>
+						</div>
+						<a href="">
+							<div class="social github">
+								<i class="fab fa-github"></i>
+							</div>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div id="informativa" class="content-text-container">
+				<div class="content-text">
+					<div class="paragraph">
+						<h2>Informativa dati salvati e utilizzo</h2>
+						<p>
+							Il sito utilizza la tecnologia <span class="mono">localStorage</span> al fine di conservare, unicamente in modo locale sul dispositivo dell'utente, determinate informazioni al fine di migliorare l'esperienza di navigazione sul sito. In particolare, i dati memorizzati riguardano le preferenze relative al tema, l'ultima pagina visitata ("menu", "stack", "heap") e il relativo scorrimento e l'acconsentimento all'utilizzo di localStorage. Si precisa che tali informazioni vengono utilizzate esclusivamente per i fini sopra specificati e non verranno in alcun modo utilizzate per scopi commerciali o pubblicitari, n&eacute; verranno condivise con terze parti.<br>
+							In conformit&agrave; alle normative italiane ed europee in materia di protezione dei dati personali, l'uso di localStorage costituisce un trattamento dei dati personali dell'utente e, pertanto, &egrave; soggetto alle disposizioni in materia di privacy.<br>
+							Si informa che è possibile cancellare i dati salvati in localStorage e disabilitare il salvataggio per questo sito modificando le impostazioni del proprio browser o cliccando <a onclick="disableLocalStorage()">qui</a>. In tal caso, tuttavia, alcune funzionalità del sito potrebbero non essere disponibili o potrebbero non funzionare correttamente.<br>
+							Per accedere a questa pagina in futuro, è possibile cliccare su "Informativa" presente in fondo a ogni pagina.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script>
+			function show(e){
+				window.location.replace("../index.html?display=" + e.getAttribute("for"));
+			}
+		</script>
+
+		<script>
+			function disableLocalStorage(){
+				localStorage.clear();
+				setInterval(function(){
+					window.location.replace("../index.html");
+				}, 1000);
+			}
+		</script>
+		
+</body>
+</html>
