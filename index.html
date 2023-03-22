@@ -375,9 +375,9 @@
 
 	<!---- SCROLL TO SAVED POSITION ----->
 	<script>
-		if(localStorage.getItem(localStorage.getItem($(".nav-btn-active").attr("for") + "Scroll")) != null){
+		if(localStorage.getItem("acceptUse") == "true")
 			$(window).scrollTop(localStorage.getItem($(".nav-btn-active").attr("for") + "Scroll"));
-		}
+		
 		$(window).scroll(function(){
 			if(localStorage.getItem("acceptUse") == "true")
 				localStorage.setItem($(".nav-btn-active").attr("for") + "Scroll", $(window).scrollTop());
